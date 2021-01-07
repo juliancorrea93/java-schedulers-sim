@@ -1,0 +1,17 @@
+cmd.exe
+/X
+/C
+""C:\Program Files\Java\jdk1.8.0_241\jre\..\bin\javadoc.exe" @options @argfile"
+C:\Users\Julian\Documents\NetBeansProjects\OSProject\target\site\apidocs\allclasses-frame.html = 1604191806218
+C:\Users\Julian\Documents\NetBeansProjects\OSProject\target\site\apidocs\allclasses-noframe.html = 1604191806225
+C:\Users\Julian\Documents\NetBeansProjects\OSProject\target\site\apidocs\argfile = 1604191805467
+C:\Users\Julian\Documents\NetBeansProjects\OSProject\target\site\apidocs\constant-values.html = 1604191806120
+C:\Users\Julian\Documents\NetBeansProjects\OSProject\target\site\apidocs\deprecated-list.html = 1604191806208
+C:\Users\Julian\Documents\NetBeansProjects\OSProject\target\site\apidocs\help-doc.html = 1604191806239
+C:\Users\Julian\Documents\NetBeansProjects\OSProject\target\site\apidocs\index-all.html = 1604191806197
+C:\Users\Julian\Documents\NetBeansProjects\OSProject\target\site\apidocs\index.html = 1604191806229
+C:\Users\Julian\Documents\NetBeansProjects\OSProject\target\site\apidocs\options = 1604191805466
+C:\Users\Julian\Documents\NetBeansProjects\OSProject\target\site\apidocs\overview-tree.html = 1604191806184
+C:\Users\Julian\Documents\NetBeansProjects\OSProject\target\site\apidocs\package-list = 1604191806055
+C:\Users\Julian\Documents\NetBeansProjects\OSProject\target\site\apidocs\script.js = 1604191806248
+C:\Users\Julian\Documents\NetBeansProjects\OSProject\target\site\apidocs\stylesheet.css = 1604191624540
