@@ -7,12 +7,12 @@ import java.util.ArrayList;
  * @author Julian
  */
 public class Process implements Comparable{
+    /**
+     * Constructor for Process class
+     * @param proc: (String) name for the proc
+     * @param process_bursts : (int[]) array of integers for bursts
+     */
     public Process(String proc, int[] process_bursts) {
-        /**
-         * Constructor for Process class
-         * @param proc: (String) name for the proc
-         * @param process_bursts: (int[]) array of integers for bursts
-         */
         name = proc;
         burst = new ArrayList();
         for(int b:process_bursts) {
@@ -27,58 +27,57 @@ public class Process implements Comparable{
         completed = false;
         priority = 3;
     }
-    public void decBursts() {
-        /**
-         * Decrements the burst by one to update amount of time left for burst
-         * @precondition burst given is > 0
-         */
-        
+    /**
+     * Decrements the burst by one to update amount of time left for burst
+     * @precondition burst given is > 0
+     */
+    public void decBursts() {   
         this.burst.set(0, this.burst.get(0)-1);
     }
+    /**
+     * Increments the time spent in IO for the process
+     */
     public void incWaitingTime() {
-        /**
-         * Increments the time spent in IO for the process
-         */
         this.io_time++;
     }
+    /**
+     * Increments the time spent in Ready for the process
+     */
     public void incReadyTime() {
-        /**
-         * Increments the time spent in Ready for the process
-         */
         this.time_in_ready++;
     }
+    /**
+     * Increments the time spent in Running for the process
+     */
     public void incRuntime() {
-        /**
-         * Increments the time spent in Running for the process
-         */
         this.time_in_running++;
     }
+    /**
+     * Calculates the turnaround time or time from submission of process to
+     * exit
+     * @return Returns the calculated turnaround time
+     */
     public int calcTurnarond() {
-        /**
-         * Calculates the turnaround time or time from submission of process to
-         * exit
-         * @return Returns the calculated turnaround time
-         */
         this.turnaround_time = this.exit;
         //since all arrive at 0 no time needed
         return this.turnaround_time;
     }
+    /**
+     * Checks if there are bursts left to complete
+     * @return returns true if there are no bursts left to complete or false if process still has bursts to complete
+     */
     public boolean isDone() {
-        /**
-         * Checks if there are bursts left to complete
-         * @return returns true if there are no bursts left to complete or false if process still has bursts to complete
-         */
         if(burst.isEmpty()) {
             this.completed = true;
         }
 
         return burst.isEmpty();
     }
+    /**
+     * Checks if the current burst is done
+     * @return returns true or false regarding status of current burst time being 0
+     */
     public boolean isCurrentBurstDone() {
-        /**
-         * Checks if the current burst is done
-         * @return returns true or false regarding status of current burst time being 0
-         */
         if (this.isDone()) {
             return true;
         }
@@ -92,84 +91,87 @@ public class Process implements Comparable{
             }
         }
     }
+    /**
+     * Implements comparator interface to sort a list of Processes
+     * @param o Object to be compared, in this case Process instance
+     * @return returns the difference of the current burst compared to another processes current burst
+     */
     @Override
     public int compareTo(Object o) {
-        /**
-         * Implements comparator interface to sort a list of Processes
-         * @return returns the difference of the current burst compared to another processes current burst
-         */
         int comparison = ((Process)o).getCurrentBurst();
         
         return this.getCurrentBurst()-comparison;
     }
+    /**
+     * Gets the current burst time
+     * @return returns the current burst's time
+     */
     public int getCurrentBurst() {
-        /**
-         * Gets the current burst time
-         * @return returns the current burst's time
-         */
         return this.burst.get(0);
     }
     
+    /**
+     * Gets the name of the process
+     * @return returns name of process
+     */
     public String getName() {
-        /**
-         * Gets the name of the process
-         * @return returns name of process
-         */
         return this.name;
     }
     
+    /**
+     * Gets the response time
+     * @return value for response time
+     */
     public int getResponseTime() {
-        /**
-         * Gets the response time
-         * @return value for response time
-         */
         return this.response_time;
     }
+    /**
+     * Gets the exit time
+     * @return value for exit time
+     */
     public int getExit() {
-        /**
-         * Gets the exit time
-         * @return value for exit time
-         */
         return this.exit;
     }
     
+    /**
+     * Gets the time spent in IO
+     * @return value of time spent in IO
+     */
     public int getWaitTime() {
-        /**
-         * Gets the time spent in IO
-         * @return value of time spent in IO
-         */
         return this.time_in_ready;
     }
+    /**
+     * Sets response time for Process, if already set does nothing
+     * @param time current clock time
+     */
     public void setResponseTime(int time) {
-        /**
-         * Sets response time for Process, if already set does nothing
-         */
         if (response_time < 0) {
             this.response_time = time;
         }
     }
-    
+    /**
+     * Sets exit time
+     * @param time current clock time
+     * @precondition encase this method within a conditional checking if isDone()
+     * returns true
+     */
     public void setExitTime(int time) {
-        /**
-         * Sets exit time
-         * @precondition encase this method within a conditional checking if isDone()
-         * returns true
-         */
+        
         this.exit = time;
     }
+    /**
+     * Gets current priority of process
+     * @return value of current priority
+     */
     public int getPriority() {
-        /**
-         * Gets current priority of process
-         * @return value of current priority
-         */
         return this.priority;
     }
+    /**
+     * Sets the value of priority
+     * @param val Integer value for new priority
+     * @precondition 0 < val <= 3
+     */
     public void setPriority(int val) {
-        /**
-         * Sets the value of priority
-         * @param Integer value for priority
-         * @precondition 0 < val <= 3
-         */
         this.priority = val;
     }
     
